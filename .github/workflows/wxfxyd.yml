@@ -1,0 +1,30 @@
+# File: .github/workflows/iplcdn_repo-sync.yml
+name: 微信分享阅读
+on:
+  workflow_dispatch:
+  schedule:
+    cron: '0 0/5 8,22 * * ?'
+  watch:
+    types: started
+  repository_dispatch:
+    types: bean_change
+ 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: 'run 微信分享阅读' 
+        run: python3 wxfx.py 
+        
+
+
+ 
