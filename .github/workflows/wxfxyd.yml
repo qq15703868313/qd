@@ -1,26 +1,23 @@
-name: 微信分享阅读
+name: wxfxyd  #yml文件名字
+#微信分享阅读
 on:
-  workflow_dispatch:
-  schedule:
+ schedule:
     cron: '0 0/5 8,22 * * ?'
-  watch:
-    types: started
-  repository_dispatch:
-    types: bean_change
- 
-
+workflow_dispatch:
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: 'Set up Python'
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.7
+ build:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+       
+     - name: 'Set up Python'
+       uses: actions/setup-python@v1
+       with:
+         python-version: 3.7
 
-      - name: 'run 微信分享阅读' 
-        run: python3 wxfx.py 
-        
+    - name: '运行提示'#显示的名字，随意
+       run: pip install -r ./Xxx/库.TXT#调用的支持库
+       
+     - name: '运行提示' #随意
+       run: python3 wxfx.py#你的py代码在github的路径
